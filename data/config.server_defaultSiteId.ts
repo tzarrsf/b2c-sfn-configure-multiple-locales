@@ -1,5 +1,5 @@
 defaultSiteId: "MarketStreet",
-    siteAliasMap: {
-        MarketStreet: "us",
-        MarketStreet: "global",
+siteAliasMap: {
+    MarketStreet: "us",
+    MarketStreet: "global",
 },
