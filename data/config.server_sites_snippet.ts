@@ -25,6 +25,6 @@ sites: [
                 preferredCurrency: 'CNY',
             },
         ],
-        supportedCurrencies: ['EUR', 'GBP'],
+        supportedCurrencies: ['EUR', 'GBP', 'JPY'],
     },
 ],
