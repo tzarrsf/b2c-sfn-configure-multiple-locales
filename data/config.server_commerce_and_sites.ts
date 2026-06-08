@@ -23,7 +23,7 @@ commerce: {
                     preferredCurrency: "EUR",
                 },
             ],
-            supportedCurrencies: ["EUR", "GBP"],
+            supportedCurrencies: ["USD", "EUR", "GBP"],
         },
         // Other sites...
     ],
