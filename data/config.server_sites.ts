@@ -1,25 +1,5 @@
 sites: [
         {
-            id: "RefArchGlobal",
-            defaultLocale: "en-US",
-            defaultCurrency: "USD",
-            supportedLocales: [
-                {
-                    id: "en-GB",
-                    preferredCurrency: "GBP",
-                },
-                {
-                    id: "fr-FR",
-                    preferredCurrency: "EUR",
-                },
-                {
-                    id: "it-IT",
-                    preferredCurrency: "EUR",
-                },
-            ],
-            supportedCurrencies: ["USD", "GBP", "EUR"],
-        },
-        {
             id: "MarketStreet",
             defaultLocale: "en-US",
             defaultCurrency: "USD",
