@@ -1,1 +1,1 @@
-PUBLIC__app__i18n__supportedLngs='["en-US", "en-GB", "fr-FR", "it-IT"]'
+PUBLIC__app__i18n__supportedLngs='["en-US", "en-GB", "fr-FR", "it-IT", "ja-JP"]'
