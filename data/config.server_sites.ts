@@ -20,7 +20,12 @@ sites: [
                     id: "it-IT",
                     preferredCurrency: "EUR",
                 },
+                {
+                    id: "ja-JP",
+                    preferredCurrency: "JPY",
+                },
             ],
-            supportedCurrencies: ["USD", "GBP", "EUR"],
+            supportedCurrencies: ["USD", "EUR", "GBP", "JPY"],
         },
-],
+        // Other sites...
+    ],

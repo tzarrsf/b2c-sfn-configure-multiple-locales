@@ -22,10 +22,14 @@ commerce: {
                     id: "it-IT",
                     preferredCurrency: "EUR",
                 },
+                {
+                    id: "ja-JP",
+                    preferredCurrency: "JPY",
+                },
+                // Other sites...
             ],
-            supportedCurrencies: ["USD", "EUR", "GBP"],
+            supportedCurrencies: ["USD", "EUR", "GBP", "JPY"],
         },
-        // Other sites...
     ],
 },
 defaultSiteId: "MarketStreet",
