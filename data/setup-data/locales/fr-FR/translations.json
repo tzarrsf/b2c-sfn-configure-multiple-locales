@@ -277,7 +277,7 @@
     "jwks": {
       "missingEnvironmentVariables": "Configuration obligatoire manquante : shortCode et organizationId.",
       "invalidResponse": "Réponse JWKS invalide : tableau keys manquant ou invalide.",
-      "unknownError": "Une erreur inconnue s'est produite."
+      "unknownError": "Une erreur inattendue s'est produite."
     },
     "marketing": {
       "clientIdMissing": "MARKETING_CLOUD_CLIENT_ID n'est pas défini dans les variables d'environnement.",
@@ -655,7 +655,7 @@
         "cta": "S'inscrire"
       },
       "summaryTitle": "Récapitulatif",
-      "emptyItemsFallback": "Your items are being prepared.",
+      "emptyItemsFallback": "Vos articles sont en cours de préparation.",
       "productPlaceholderInitial": "Article"
     },
     "errorBoundary": {
@@ -731,9 +731,812 @@
           "firstNameRequired": "Le prénom est obligatoire.",
           "firstNameMax": "Le prénom doit contenir 50 caractères maximum.",
           "lastNameRequired": "Le nom est obligatoire.",
-          "lastNameMax": "Le nom doit contenir 50 caractères maximum."
+          "lastNameMax": "Le nom doit contenir 50 caractères maximum.",
+          "emailRequired": "L'adresse e-mail est obligatoire.",
+          "emailInvalid": "Veuillez saisir une adresse e-mail valide.",
+          "emailMax": "L'adresse e-mail doit contenir 100 caractères maximum.",
+          "relationshipRequired": "Veuillez sélectionner un lien ou une relation."
+        },
+        "statusActive": "Actif",
+        "relationshipLabel": "Lien : {{relationship}}",
+        "edit": "Modifier",
+        "delete": "Supprimer",
+        "emptyState": "Aucune personne autorisée à retirer pour le moment. Ajoutez une personne pouvant retirer des commandes en votre nom.",
+        "deleteConfirmTitle": "Retirer la personne autorisée",
+        "deleteConfirmDescription": "Voulez-vous vraiment retirer {{name}} ? Cette personne ne pourra plus retirer de commandes en votre nom.",
+        "deleteConfirmCancel": "Annuler",
+        "deleteConfirmRemove": "Supprimer",
+        "relationships": {
+          "spouse": "Conjoint(e)",
+          "familyMember": "Membre de la famille",
+          "friend": "Ami(e)",
+          "other": "Autre"
         }
+      },
+      "pickupPreferences": {
+        "heading": "Préférences de retrait",
+        "description": "Gérez vos préférences de notification de retrait et de magasin",
+        "edit": "Modifier",
+        "save": "Enregistrer",
+        "cancel": "Annuler",
+        "autoSelectStore": "Sélection automatique du magasin favori",
+        "autoSelectStoreDescription": "Utiliser automatiquement votre magasin favori pour les commandes avec retrait",
+        "pickupNotifications": "Notifications de retrait",
+        "pickupNotificationsDescription": "Recevez une alerte lorsque votre commande est prête pour le retrait",
+        "storeEventsPromotions": "Événements et promotions en magasin",
+        "storeEventsPromotionsDescription": "Recevez des informations sur les événements et promotions de votre magasin favori",
+        "saveSuccess": "Préférences de retrait enregistrées avec succès"
       }
+    },
+    "overview": {
+      "welcomeBack": "Bon retour, {{name}} !",
+      "welcomeSubtitle": "Gérez votre compte, consultez vos commandes et découvrez des recommandations personnalisées.",
+      "defaultName": "là",
+      "quickLinks": {
+        "title": "Accès rapide",
+        "orderHistoryDesc": "Suivez vos commandes",
+        "wishlistDesc": "Articles enregistrés",
+        "addressesDesc": "Gérez vos adresses",
+        "paymentMethodsDesc": "Gérez vos moyens de paiement"
+      },
+      "curatedForYou": {
+        "title": "Sélectionné pour vous",
+        "subtitle": "Choisis pour vous selon votre activité"
+      },
+      "appDownload": {
+        "title": "Téléchargez notre application",
+        "description": "Profitez de la meilleure expérience shopping où que vous soyez. Accédez à des offres exclusives, suivez vos commandes et achetez plus vite.",
+        "appStore": "App Store",
+        "googlePlay": "Google Play",
+        "qrCode": "Code QR"
+      },
+      "recentOrders": {
+        "title": "Commandes récentes",
+        "subtitle": "Voici vos 5 dernières commandes",
+        "viewAll": "Tout afficher"
+      },
+      "rateRecentPurchases": {
+        "title": "Évaluez vos achats récents",
+        "subtitle": "Partagez votre expérience et aidez d'autres clients à découvrir d'excellents produits",
+        "orderCaption": "Commande {{orderNo}} • {{status}}",
+        "cta": "Noter et commenter"
+      }
+    },
+    "shopperAgentEntry": {
+      "title": "Besoin d'aide ?",
+      "description": "Nous sommes là pour répondre à toutes vos questions ou préoccupations",
+      "askQuestion": "Poser une question",
+      "contactInfo": "Coordonnées",
+      "browseFaq": "Consulter la FAQ"
+    },
+    "wishlist": {
+      "pageTitle": "Ma liste d'envies",
+      "pageSubtitle": "Vos articles enregistrés pour plus tard",
+      "savedItems": "Articles enregistrés",
+      "emptyTitle": "Cette liste d'envies est vide",
+      "emptySubtitle": "Commencez à ajouter des articles à votre liste d'envies !",
+      "itemCount_one": "{{count}} article enregistré",
+      "itemCount_other": "{{count}} articles enregistrés",
+      "empty": "Votre liste d'envies est vide. Commencez à ajouter les articles que vous aimez !",
+      "wishlistName": "Liste d'envies",
+      "failedToCreate": "Échec de la création de la liste d'envies : listId indisponible après création.",
+      "unableToRetrieveId": "Impossible de récupérer l'identifiant de la liste d'envies. Réessayez.",
+      "notFound": "Liste d'envies introuvable",
+      "idNotFound": "Identifiant de liste d'envies introuvable",
+      "itemNotFound": "Article introuvable dans la liste d'envies",
+      "mustLoginToAdd": "Vous devez être connecté pour ajouter des articles à votre liste d'envies.",
+      "mustLoginToRemove": "Vous devez être connecté pour retirer des articles de votre liste d'envies.",
+      "sortBy": "Trier par",
+      "sort": {
+        "recentlyAdded": "Ajouts récents",
+        "nameAZ": "Nom (A-Z)",
+        "priceLow": "Prix : croissant",
+        "priceHigh": "Prix : décroissant"
+      },
+      "filterBy": "Filtrer par",
+      "filter": {
+        "all": "Tous les articles",
+        "inStock": "En stock",
+        "outOfStock": "Rupture de stock",
+        "onSale": "En promotion"
+      },
+      "noFilterResults": "Aucun article ne correspond à votre filtre."
+    },
+    "orders": {
+      "empty": "Vous n'avez pas encore passé de commande. Une fois votre commande passée, les détails s'afficheront ici.",
+      "continueShopping": "Continuer les achats",
+      "errorDescription": "Une erreur s'est produite lors du chargement de votre historique de commandes. Veuillez réessayer plus tard.",
+      "subtitle": "Consultez et suivez vos commandes",
+      "orderDate": "Date de commande",
+      "total": "Total",
+      "items": "Articles",
+      "pickupLocation": "Lieu de retrait",
+      "location": "Lieu",
+      "address": "Adresse",
+      "viewOrderDetails": "Voir les détails de la commande",
+      "tableHeaders": {
+        "orderNumber": "N° de commande",
+        "status": "Statut",
+        "method": "Mode",
+        "amount": "Montant",
+        "actions": "Actions"
+      },
+      "viewDetails": "Voir les détails",
+      "orderDetailsTitle": "Commande",
+      "orderDetailsPageTitle": "Détails de la commande",
+      "status": {
+        "created": "Créée",
+        "new": "Nouvelle",
+        "completed": "Terminée",
+        "cancelled": "Annulée",
+        "replaced": "Remplacée",
+        "failed": "Échouée"
+      },
+      "shippingStatus": {
+        "notShipped": "Non expédiée",
+        "partShipped": "Partiellement expédiée",
+        "shipped": "Expédiée"
+      },
+      "totalOrders_one": "Affichage de {{count}} commande",
+      "totalOrders_other": "Affichage de {{count}} commandes",
+      "totalOrdersRange": "Affichage de {{start}} à {{end}} sur {{total}} commandes",
+      "paginationLabel": "Pagination de l'historique des commandes",
+      "paginationPrevious": "Page précédente",
+      "paginationNext": "Page suivante",
+      "invalidDate": "Date invalide",
+      "shipmentNumber": "Expédition {{n}}",
+      "itemsOrdered": "Articles commandés",
+      "orderSummary": "Récapitulatif de commande",
+      "backToOrderHistory": "Retour à l'historique des commandes",
+      "orderNotFound": "Commande introuvable",
+      "orderNotFoundDescription": "Nous n'avons pas trouvé la commande que vous recherchez.",
+      "buyAgain": "Acheter à nouveau",
+      "rateAndReview": "Noter et commenter",
+      "reviewSubmitted": "Avis envoyé",
+      "emptyItemsFallback": "Aucun article.",
+      "productPlaceholderInitial": "Article",
+      "quantityLabel": "Qté : {{count}}",
+      "trackingNumber": "Numéro de suivi",
+      "shippingAddress": "Adresse de livraison",
+      "paymentMethod": "Moyen de paiement",
+      "paymentMethodEndingIn": "{{cardType}} se terminant par {{lastDigits}}"
+    },
+    "addresses": {
+      "subtitle": "Gérez vos adresses de livraison",
+      "empty": "Ajoutez une adresse pour commander plus rapidement !",
+      "noSavedAddresses": "Aucune adresse enregistrée",
+      "addAddress": "Ajouter une adresse",
+      "addNewAddress": "Ajouter une nouvelle adresse",
+      "editAddress": "Modifier l'adresse",
+      "preferred": "Préférée",
+      "default": "Par défaut",
+      "setDefault": "Définir par défaut",
+      "setDefaultSuccess": "L'adresse a été définie par défaut.",
+      "setDefaultError": "Impossible de définir l'adresse par défaut. Réessayez.",
+      "billing": "Facturation",
+      "shipping": "Livraison",
+      "removeSuccess": "L'adresse a été supprimée.",
+      "removeError": "Impossible de supprimer l'adresse. Réessayez.",
+      "addSuccess": "L'adresse a été ajoutée.",
+      "addError": "Impossible d'ajouter l'adresse. Réessayez.",
+      "updateSuccess": "L'adresse a été mise à jour.",
+      "updateError": "Impossible de mettre à jour l'adresse. Réessayez.",
+      "removeDialogTitle": "Supprimer l'adresse",
+      "removeDialogDescription": "Voulez-vous vraiment supprimer cette adresse ?",
+      "removeDefaultWarning": "Il s'agit de votre adresse par défaut. Sa suppression définira automatiquement une autre adresse par défaut si disponible.",
+      "removeButton": "Supprimer",
+      "removeConfirmTitle": "Confirmer la suppression de l'adresse",
+      "removeConfirmDescription": "Voulez-vous vraiment supprimer l'adresse « {{addressName}} » ?",
+      "removeCancelButton": "Annuler",
+      "removeConfirmButton": "Oui, supprimer l'adresse"
+    },
+    "paymentMethods": {
+      "pageSubtitle": "Gérez vos moyens de paiement, cartes cadeaux et avoirs en magasin",
+      "subtitle": "Gérez vos moyens de paiement enregistrés",
+      "noSavedPaymentMethods": "Aucun moyen de paiement enregistré",
+      "empty": "Ajoutez un moyen de paiement pour commander plus rapidement !",
+      "addPaymentMethod": "Ajouter un moyen de paiement",
+      "setDefault": "Définir par défaut",
+      "remove": "Supprimer",
+      "default": "Par défaut",
+      "expires": "Expire le",
+      "addPaymentMethodTitle": "Ajouter un moyen de paiement",
+      "creditCard": "Carte bancaire",
+      "nameOnCard": "Nom sur la carte*",
+      "cardNumberPlaceholder": "Numéro de carte*",
+      "expiryPlaceholder": "mm/aa*",
+      "cvvPlaceholder": "CVV*",
+      "saveAsDefault": "Enregistrer comme moyen de paiement par défaut",
+      "billingAddress": "Adresse de facturation*",
+      "selectAddress": "Sélectionner une adresse",
+      "addNewAddress": "Ajouter une nouvelle adresse",
+      "cancel": "Annuler",
+      "save": "Enregistrer",
+      "removePaymentMethod": "Supprimer le moyen de paiement",
+      "removeConfirmation": "Voulez-vous vraiment supprimer ce moyen de paiement ?",
+      "paymentMethod": "Moyen de paiement",
+      "defaultRemovalWarning": "Il s'agit de votre moyen de paiement par défaut. Sa suppression définira automatiquement un autre moyen de paiement par défaut si disponible.",
+      "addSuccess": "Moyen de paiement ajouté avec succès.",
+      "addError": "Impossible d'ajouter le moyen de paiement.",
+      "removeSuccess": "Moyen de paiement supprimé avec succès.",
+      "removeError": "Impossible de supprimer le moyen de paiement.",
+      "setDefaultSuccess": "Moyen de paiement défini par défaut avec succès.",
+      "setDefaultError": "Impossible de définir le moyen de paiement par défaut.",
+      "validationError": "Veuillez corriger les erreurs dans le formulaire.",
+      "addressValidationError": "Veuillez corriger les erreurs dans l'adresse de facturation.",
+      "selectAddressError": "Veuillez sélectionner une adresse de facturation.",
+      "invalidExpiryFormat": "Format de date d'expiration invalide."
+    },
+    "addressForm": {
+      "addressTitleLabel": "Libellé de l'adresse",
+      "addressTitlePlaceholder": "ex. : Domicile, Travail, Chez maman",
+      "firstNameLabel": "Prénom",
+      "lastNameLabel": "Nom",
+      "phoneLabel": "Téléphone",
+      "phonePlaceholder": "(555) 123-4567",
+      "countryLabel": "Pays",
+      "addressLabel": "Adresse",
+      "address2Label": "Complément d'adresse (ligne 2)",
+      "address2Placeholder": "Appartement, bâtiment, etc. (facultatif)",
+      "cityLabel": "Ville",
+      "stateLabel": "État",
+      "provinceLabel": "Province",
+      "postalCodeLabel": "Code postal",
+      "zipCodeLabel": "Code postal",
+      "preferredLabel": "Définir par défaut",
+      "saveButton": "Enregistrer",
+      "savingButton": "Enregistrement...",
+      "cancelButton": "Annuler",
+      "selectStatePlaceholder": "Sélectionner un État",
+      "selectProvincePlaceholder": "Sélectionner une province",
+      "successMessage": "L'adresse a été enregistrée.",
+      "errorMessage": "Impossible d'enregistrer l'adresse. Réessayez.",
+      "validation": {
+        "stateRequired": "L'État ou la province est obligatoire",
+        "addressTitleRequired": "Le libellé de l'adresse est obligatoire.",
+        "addressTitleMaxLength": "Le libellé de l'adresse doit contenir 256 caractères maximum.",
+        "phoneRequired": "Le numéro de téléphone est obligatoire."
+      }
+    },
+    "profile": {
+      "title": "Informations personnelles",
+      "description": "Gérez vos informations personnelles",
+      "edit": "Modifier",
+      "fullName": "Nom complet",
+      "email": "Adresse e-mail",
+      "phoneNumber": "Numéro de téléphone",
+      "notProvided": "Non renseigné",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "firstNamePlaceholder": "Saisissez votre prénom",
+      "lastNamePlaceholder": "Saisissez votre nom",
+      "emailPlaceholder": "vous@exemple.com",
+      "phonePlaceholder": "Saisissez votre numéro de téléphone",
+      "gender": "Genre",
+      "genderPlaceholder": "Sélectionner le genre",
+      "genderOptions": {
+        "male": "Homme",
+        "female": "Femme"
+      },
+      "dateOfBirth": "Date de naissance",
+      "dateOfBirthPlaceholder": "Sélectionner la date de naissance",
+      "saveButton": "Enregistrer",
+      "savingButton": "Enregistrement...",
+      "cancelButton": "Annuler",
+      "successMessage": "Votre profil a été mis à jour.",
+      "errorMessage": "Impossible de mettre à jour votre profil. Réessayez.",
+      "validation": {
+        "firstNameRequired": "Le prénom est obligatoire.",
+        "lastNameRequired": "Le nom est obligatoire.",
+        "emailRequired": "L'adresse e-mail est obligatoire.",
+        "emailInvalid": "Saisissez une adresse e-mail valide.",
+        "phoneInvalid": "Saisissez un numéro de téléphone valide.",
+        "birthdayFuture": "La date de naissance ne peut pas être dans le futur."
+      }
+    },
+    "password": {
+      "title": "Mot de passe et sécurité",
+      "description": "Gérez vos paramètres de mot de passe et de sécurité",
+      "edit": "Modifier",
+      "password": "Mot de passe",
+      "hiddenPassword": "••••••••",
+      "changePassword": "Changer le mot de passe",
+      "currentPassword": "Mot de passe actuel",
+      "currentPasswordPlaceholder": "Saisissez votre mot de passe actuel",
+      "newPassword": "Nouveau mot de passe",
+      "newPasswordPlaceholder": "Saisissez votre nouveau mot de passe",
+      "confirmPassword": "Confirmer le nouveau mot de passe",
+      "confirmPasswordPlaceholder": "Confirmez votre nouveau mot de passe",
+      "saveButton": "Enregistrer",
+      "cancelButton": "Annuler",
+      "successMessage": "Le mot de passe a été mis à jour.",
+      "errorMessage": "Impossible de mettre à jour le mot de passe. Réessayez.",
+      "validation": {
+        "currentPasswordRequired": "Le mot de passe actuel est obligatoire.",
+        "newPasswordRequired": "Le nouveau mot de passe est obligatoire.",
+        "confirmPasswordRequired": "Confirmez votre nouveau mot de passe.",
+        "passwordsDoNotMatch": "Les nouveaux mots de passe ne correspondent pas.",
+        "passwordTooShort": "Le mot de passe doit contenir au moins 8 caractères."
+      },
+      "requirements": {
+        "title": "Exigences du mot de passe",
+        "minLength": "Au moins 8 caractères",
+        "hasUppercase": "Au moins une lettre majuscule",
+        "hasLowercase": "Au moins une lettre minuscule",
+        "hasNumber": "Au moins un chiffre",
+        "hasSpecial": "Au moins un caractère spécial"
+      }
+    },
+    "interests": {
+      "title": "Vos centres d'intérêt",
+      "description": "Ajoutez vos centres d'intérêt design pour recevoir du contenu, des recommandations et des offres personnalisées",
+      "selectedLabel": "Vos centres d'intérêt sélectionnés",
+      "noneSelected": "Aucun centre d'intérêt sélectionné",
+      "noneInCategory": "Aucune sélection",
+      "addMore": "Ajouter",
+      "addInterestsTitle": "Ajouter vos centres d'intérêt",
+      "dialogTitle": "Sélectionner vos centres d'intérêt",
+      "dialogDescription": "Choisissez parmi les catégories ci-dessous pour personnaliser votre expérience",
+      "selectCategory": "Sélectionner {{category}}",
+      "selectCategoryDescription": "Choisissez les options qui vous intéressent",
+      "successMessage": "Vos centres d'intérêt ont été mis à jour.",
+      "errorMessage": "Impossible de mettre à jour vos centres d'intérêt. Réessayez."
+    },
+    "interestsPreferences": {
+      "title": "Centres d'intérêt et préférences",
+      "description": "Ajoutez vos centres d'intérêt design et gérez vos préférences d'achat",
+      "successMessage": "Vos centres d'intérêt et préférences ont été mis à jour.",
+      "errorMessage": "Échec de la mise à jour. Réessayez."
+    },
+    "preferences": {
+      "title": "Vos préférences",
+      "description": "Gérez vos préférences d'achat et votre abonnement à la newsletter",
+      "noneSelected": "Aucune sélection",
+      "addMore": "Ajouter",
+      "dialogTitle": "Sélectionner des options",
+      "selectCategory": "Sélectionner {{category}}",
+      "selectCategoryDescription": "Choisissez les options qui s'appliquent à vous",
+      "successMessage": "Vos préférences ont été mises à jour.",
+      "errorMessage": "Impossible de mettre à jour vos préférences. Réessayez."
+    },
+    "common": {
+      "save": "Enregistrer",
+      "saving": "Enregistrement...",
+      "cancel": "Annuler",
+      "edit": "Modifier",
+      "done": "Terminé",
+      "enabled": "Activé",
+      "disabled": "Désactivé"
+    },
+    "marketingConsent": {
+      "title": "Préférences marketing et de communication",
+      "edit": "Modifier",
+      "editA11y": "Modifier les préférences marketing",
+      "optedIn": "Activé",
+      "optedOut": "Non activé",
+      "channelEmail": "E-mail",
+      "channelSms": "SMS / Messages texte",
+      "disclaimer": "En activant ces préférences de communication, vous acceptez de recevoir des communications marketing de notre part, notamment des offres exclusives, les dernières informations produits et les actualités sur les collections à venir. Consultez nos Conditions générales d'utilisation et notre Politique de confidentialité pour en savoir plus.",
+      "updateError": "Impossible de mettre à jour les préférences marketing. Réessayez.",
+      "partialSuccess": "Certaines préférences ont été enregistrées. Actualisez la page pour voir les paramètres actuels."
+    }
+  },
+  "home": {
+    "hero": {
+      "slide1": {
+        "title": "La nouvelle saison",
+        "subtitle": "Une nouvelle collection façonnée par le contraste, les proportions et une attitude moderne. Découvrez les pièces clés de la saison à venir.",
+        "ctaText": "Découvrir la collection",
+        "imageAlt": "Pantalons, vestes et sacs à main pour femme"
+      },
+      "slide2": {
+        "title": "La garde-robe moderne",
+        "subtitle": "Des silhouettes affirmées, des textures raffinées et une approche audacieuse du style quotidien. Conçue pour suivre chacun de vos mouvements.",
+        "ctaText": "Découvrir le look",
+        "imageAlt": "Robe blanche en lin pour femme"
+      },
+      "slide3": {
+        "title": "Après la tombée du jour",
+        "subtitle": "Des pièces fortes et des superpositions raffinées pensées pour les soirées, les instants tardifs et tout ce qu'il y a entre les deux.",
+        "ctaText": "Explorer la collection",
+        "imageAlt": "Tailleur noir pour femme"
+      },
+      "slide4": {
+        "title": "Nouvelles perspectives",
+        "subtitle": "Une sélection pointue de pièces phares qui réinventent la mode contemporaine. Confiante. Expressive. Sans compromis.",
+        "ctaText": "Acheter maintenant",
+        "imageAlt": "Robe grise pour femme"
+      }
+    },
+    "meta": {
+      "title": "Storefront Next : Market Street",
+      "description": "Boutique mode nouvelle génération"
+    },
+    "featuredProducts": {
+      "title": "Produits à la une",
+      "shopAll": "Tout voir",
+      "loadFailed": "Impossible de charger les produits à la une."
+    },
+    "categoryGrid": {
+      "title": "Un style pensé pour le quotidien",
+      "description": "Chez Market Street, nous pensons que la mode doit être naturelle, authentique et accessible. Nos collections sont conçues pour celles et ceux qui apprécient la qualité, la polyvalence et un style intemporel.",
+      "shopNowButton": "Acheter maintenant",
+      "loadFailed": "Impossible de charger les catégories."
+    },
+    "featuredContent": {
+      "women": {
+        "title": "Femme",
+        "description": "Découvrez notre sélection de chaussures sophistiquées conçues pour la femme moderne.",
+        "ctaText": "EXPLORER LA COLLECTION",
+        "imageAlt": "Collection femme"
+      },
+      "men": {
+        "title": "Homme",
+        "description": "Le savoir-faire intemporel rencontre le style contemporain dans notre collection de chaussures pour homme.",
+        "ctaText": "EXPLORER LA COLLECTION",
+        "imageAlt": "Collection homme"
+      },
+      "styleForRealLife": {
+        "title": "Un style pensé pour le quotidien",
+        "description": "Chez Market Street, nous pensons que la mode doit être naturelle, authentique et accessible. Nos collections sont conçues pour celles et ceux qui apprécient la qualité, la polyvalence et un style intemporel.\n\nDécouvrez des pièces qui vous accompagnent, s'adaptent à votre vie et deviennent la base d'une garde-robe efficace, tous les jours et partout."
+      }
+    }
+  },
+  "footer": {
+    "sections": {
+      "customerSupport": "Service client",
+      "account": "Compte",
+      "ourCompany": "Notre entreprise",
+      "switchThemes": "Changer de thème",
+      "switchSite": "Région",
+      "switchLanguage": "Langue",
+      "switchCurrency": "Devise",
+      "shop": "Boutique",
+      "help": "Aide",
+      "about": "À propos"
+    },
+    "links": {
+      "contactUs": "Nous contacter",
+      "shipping": "Livraison",
+      "orderStatus": "État de la commande",
+      "signInOrCreateAccount": "Se connecter ou créer un compte",
+      "aboutUs": "À propos de nous",
+      "accessibility": "Déclaration d'accessibilité",
+      "privacyPolicy": "Politique de confidentialité",
+      "privacyChoices": "Vos choix de confidentialité",
+      "termsOfUse": "Conditions d'utilisation"
+    },
+    "socialMedia": {
+      "youtubeLabel": "YouTube",
+      "instagramLabel": "Instagram",
+      "xLabel": "X",
+      "facebookLabel": "Facebook"
+    },
+    "newsletter": {
+      "title": "Rejoignez notre communauté",
+      "description": "Soyez les premiers à découvrir les nouveautés, les offres exclusives et nos inspirations style.",
+      "emailPlaceholder": "Votre adresse e-mail",
+      "subscribeButton": "S'abonner"
+    },
+    "copyright": "Salesforce ou ses sociétés affiliées. Tous droits réservés. Ceci est uniquement une boutique de démonstration. Les commandes passées NE SERONT PAS traitées.",
+    "address": "415 Mission St, San Francisco, CA 94105",
+    "logoAlt": "Market Street"
+  },
+  "aboutUs": {
+    "breadcrumb": {
+      "home": "Accueil",
+      "aboutUs": "À propos de nous"
+    },
+    "title": "À propos de nous",
+    "subtitle": "En savoir plus sur notre entreprise et notre mission",
+    "section": {
+      "ourGoal": {
+        "title": "Conçu pour le mouvement. Pensé pour le quotidien.",
+        "content": "Inspirée par la culture urbaine et l'énergie du mouvement, Market Street a été créée pour réunir performance, style et essentiels du quotidien au sein d'une expérience fluide. Nous sommes convaincus que de bons produits doivent vous accompagner dans tous vos déplacements : de la rue au studio, de la semaine au week-end.\nCe qui a commencé comme une vision visant à simplifier l'expérience de la mode et du lifestyle est devenu une marque axée sur la clarté, l'accessibilité et un design intelligent. Chaque collection est pensée pour offrir polyvalence, durabilité et attrait intemporel."
+      },
+      "ourVision": {
+        "title": "Notre vision",
+        "content": "Réinventer le commerce moderne grâce à la technologie, au design et à l'expérience client, en créant un environnement d'achat fluide, inspirant et humain. Nous ne courons pas après les tendances. Nous construisons des expériences durables."
+      },
+      "ourValue": {
+        "title": "Notre raison d'être",
+        "content": "Nous existons pour lever les freins entre les personnes et ce qu'elles aiment. Pour rendre l'achat intuitif, rapide et porteur de sens. Pour créer une marque qui évolue avec sa communauté."
+      },
+      "ourMission": {
+        "title": "Nos engagements",
+        "content": "Un design intentionnel — chaque produit, chaque interaction, chaque détail a un sens.\nUne technologie qui s'efface — nous utilisons l'innovation pour simplifier, jamais pour compliquer.\nUne priorité absolue au client — de la découverte à la livraison, votre parcours passe avant tout.\nUne durabilité en mouvement — nous privilégions les matériaux, fournisseurs et modes logistiques responsables."
+      },
+      "ourTeam": {
+        "title": "Une marque mondiale, une âme urbaine",
+        "content": "Market Street est née de l'idée qu'un style affirmé ne doit pas sembler hors de portée. Nous associons inspiration mondiale et ancrage urbain, en reliant culture, performance et mode de vie dans une expression fluide.\nDu développement produit à l'expérience numérique, chacune de nos actions est guidée par un principe :\nRendre le commerce naturel."
+      }
+    },
+    "contact": {
+      "title": "Nous sommes là pour vous aider",
+      "intro": "Vous avez une question, un commentaire ou besoin d'assistance ? Notre équipe est prête à vous accompagner.",
+      "phoneDisplay": "1-800-8060-6453",
+      "phoneHref": "tel:180080606453",
+      "hours": {
+        "weekdays": "Du lundi au vendredi : 9 h – 22 h EST",
+        "weekends": "Samedi et dimanche : 10 h – 19 h EST"
+      },
+      "cta": "Ou envoyez-nous un message via le formulaire : nous vous répondrons dans les plus brefs délais.",
+      "form": {
+        "label": "Objet",
+        "nameLabel": "Nom",
+        "emailLabel": "E-mail",
+        "messageLabel": "Message",
+        "placeholders": {
+          "fullName": "Saisissez votre nom complet",
+          "email": "vous@exemple.com",
+          "topic": "Informations générales",
+          "message": "Laissez-nous un message"
+        },
+        "submit": "Envoyer le message"
+      },
+      "toast": {
+        "success": "Message envoyé avec succès."
+      }
+    }
+  },
+  "countries": {
+    "US": {
+      "name": "États-Unis",
+      "states": {
+        "AL": "Alabama",
+        "AK": "Alaska",
+        "AZ": "Arizona",
+        "AR": "Arkansas",
+        "CA": "Californie",
+        "CO": "Colorado",
+        "CT": "Connecticut",
+        "DE": "Delaware",
+        "DC": "District de Columbia",
+        "FL": "Floride",
+        "GA": "Géorgie",
+        "HI": "Hawaï",
+        "ID": "Idaho",
+        "IL": "Illinois",
+        "IN": "Indiana",
+        "IA": "Iowa",
+        "KS": "Kansas",
+        "KY": "Kentucky",
+        "LA": "Louisiane",
+        "ME": "Maine",
+        "MD": "Maryland",
+        "MA": "Massachusetts",
+        "MI": "Michigan",
+        "MN": "Minnesota",
+        "MS": "Mississippi",
+        "MO": "Missouri",
+        "MT": "Montana",
+        "NE": "Nebraska",
+        "NV": "Nevada",
+        "NH": "New Hampshire",
+        "NJ": "New Jersey",
+        "NM": "Nouveau-Mexique",
+        "NY": "New York",
+        "NC": "Caroline du Nord",
+        "ND": "Dakota du Nord",
+        "OH": "Ohio",
+        "OK": "Oklahoma",
+        "OR": "Oregon",
+        "PA": "Pennsylvanie",
+        "RI": "Rhode Island",
+        "SC": "Caroline du Sud",
+        "SD": "Dakota du Sud",
+        "TN": "Tennessee",
+        "TX": "Texas",
+        "UT": "Utah",
+        "VT": "Vermont",
+        "VA": "Virginie",
+        "WA": "Washington",
+        "WV": "Virginie-Occidentale",
+        "WI": "Wisconsin",
+        "WY": "Wyoming"
+      }
+    },
+    "CA": {
+      "name": "Canada",
+      "states": {
+        "AB": "Alberta",
+        "BC": "Colombie-Britannique",
+        "MB": "Manitoba",
+        "NB": "Nouveau-Brunswick",
+        "NL": "Terre-Neuve-et-Labrador",
+        "NS": "Nouvelle-Écosse",
+        "NT": "Territoires du Nord-Ouest",
+        "NU": "Nunavut",
+        "ON": "Ontario",
+        "PE": "Île-du-Prince-Édouard",
+        "QC": "Québec",
+        "SK": "Saskatchewan",
+        "YT": "Yukon"
+      }
+    }
+  },
+  "themeSwitcher": {
+    "ariaLabel": "Sélecteur de mode de thème",
+    "lightTheme": "Clair",
+    "darkTheme": "Sombre",
+    "themeFamily": "Thème",
+    "themeMode": "Mode",
+    "themeFamilyAriaLabel": "Sélecteur de famille de thèmes",
+    "marketStreet": "Market Street",
+    "foundations": "Foundations"
+  },
+  "miniCart": {
+    "noImage": "Aucune image",
+    "productAltFallback": "Produit",
+    "quantityLabel": "Quantité :",
+    "quantityAriaLabel": "Quantité",
+    "customQuantityAriaLabel": "Quantité personnalisée",
+    "customOption": "Personnalisé...",
+    "editQuantityAriaLabel": "Modifier la quantité",
+    "promotionApplied": "Promotion appliquée",
+    "removeItemAriaLabel": "Supprimer l'article du panier",
+    "emptyCart": "Votre panier est vide",
+    "loading": "Chargement...",
+    "viewCart": "Voir le panier",
+    "saved": "{{amount}} économisé(s)",
+    "free": "Gratuit"
+  },
+  "trackingConsent": {
+    "title": "Consentement au suivi",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "accept": "Accepter",
+    "decline": "Refuser",
+    "closeAriaLabel": "Fermer"
+  },
+  "localeSwitcher": {
+    "ariaLabel": "Sélecteur de langue",
+    "locales": {
+      "en-GB": "Anglais (Royaume-Uni)",
+      "en-US": "Anglais (États-Unis)",
+      "it-IT": "Italien (Italie)"
+    },
+    "validation": {
+      "unsupportedLocale": "Langue non prise en charge",
+      "usingDefault": "Utilisation de la langue par défaut : {{locale}}"
+    }
+  },
+  "currencySwitcher": {
+    "ariaLabel": "Sélecteur de devise",
+    "currencies": {
+      "USD": "Dollar américain ($)",
+      "MXN": "Peso mexicain ($)",
+      "EUR": "Euro (€)",
+      "GBP": "Livre sterling (£)",
+      "JPY": "Yen japonais (¥)",
+      "KRW": "Won sud-coréen (₩)",
+      "BRL": "Réal brésilien (R$)",
+      "CNY": "Yuan chinois (¥)",
+      "TWD": "Dollar de Taïwan (NT$)"
+    },
+    "validation": {
+      "unsupportedCurrency": "Devise non prise en charge",
+      "usingDefault": "Utilisation de la devise par défaut : {{currency}}"
+    }
+  },
+  "addressSuggestionDropdown": {
+    "suggested": "SUGGÉRÉ",
+    "closeSuggestions": "Fermer les suggestions",
+    "loading": "Chargement des suggestions...",
+    "googleMapsLogoAlt": "Google Maps"
+  },
+  "infoModal": {
+    "paymentScheduleDescription": "Détails de l'échéancier de paiement",
+    "writeReviewDescription": "Formulaire de rédaction d'avis",
+    "starRatingDistributionDescription": "Détails de la répartition des notes",
+    "estimatedDeliveryDescription": "Détails de la livraison estimée",
+    "returnsAndWarrantyDescription": "Détails des retours et de la garantie",
+    "close": "Fermer"
+  },
+  "estimatedDelivery": {
+    "cardTitle": "Livraison estimée",
+    "cardDescription": "Modes de livraison disponibles",
+    "learnMore": "En savoir plus",
+    "sectionHeading": "Livraison estimée",
+    "shippingOptionsHeading": "Modes et tarifs de livraison",
+    "free": "Gratuit"
+  },
+  "returnsAndWarranty": {
+    "learnMore": "Voir les politiques",
+    "returnConditions": "Conditions de retour :",
+    "howToReturn": "Comment effectuer un retour :",
+    "note": "Remarque :",
+    "whatsCovered": "Ce qui est couvert :",
+    "whatsNotCovered": "Ce qui n'est pas couvert :",
+    "warrantyClaims": "Réclamations au titre de la garantie :",
+    "exchangeProcess": "Procédure d'échange :",
+    "needHelp": "Besoin d'aide ?",
+    "contactAt": "Contactez-nous à l'adresse",
+    "orCall": "ou appelez le"
+  },
+  "writeReview": {
+    "validation": {
+      "pleaseFixFollowing": "Veuillez corriger les éléments suivants :",
+      "ratingRequired": "Veuillez sélectionner une note.",
+      "reviewRequired": "Veuillez remplir ce champ.",
+      "reviewMinLength": "Votre avis doit contenir au moins {{count}} caractères",
+      "reviewMaxLength": "Veuillez saisir au maximum {{count}} caractères.",
+      "titleMaxLength": "Veuillez saisir au maximum {{count}} caractères."
+    },
+    "minCharactersHint": "{{count}} caractères minimum.",
+    "maxCharactersHint": "{{count}} caractères maximum."
+  },
+  "sitePicker": {
+    "title": "Choisissez votre site",
+    "description": "Sélectionnez votre boutique préférée pour afficher les produits et tarifs correspondants.",
+    "ariaLabel": "Sélectionner un site",
+    "placeholder": "Sélectionner un site...",
+    "sites": {
+      "RefArchGlobal": "Global (Royaume-Uni)",
+      "RefArch": "États-Unis"
+    }
+  },
+  "security": {
+    "turnstile": {
+      "error": "Impossible de vérifier votre requête. Veuillez réessayer.",
+      "expired": "La vérification a expiré. Veuillez réessayer.",
+      "loading": "Vérification en cours...",
+      "retry": "Réessayer la vérification"
+    }
+  },
+  "category": {
+    "banner": {
+      "counting": "Calcul du nombre de produits...",
+      "productsAvailable_one": "1 produit disponible",
+      "productsAvailable_other": "{{count}} produits disponibles"
+    },
+    "breadcrumbs": {
+      "label": "Fil d'Ariane",
+      "home": "Accueil"
+    },
+    "pagination": {
+      "label": "Pagination",
+      "previous": "Précédent",
+      "previousPage": "Page précédente",
+      "next": "Suivant",
+      "nextPage": "Page suivante",
+      "page": "Page {{number}}"
+    }
+  },
+  "maintenancePage": {
+    "heading": "Nous améliorons encore votre expérience",
+    "description": "Notre boutique est temporairement fermée pour maintenance programmée. Nous travaillons à améliorer votre expérience d'achat et serons bientôt de retour.",
+    "apology": "Nous vous prions de nous excuser pour la gêne occasionnée. Merci de votre patience !",
+    "checkBack": "Revenez dans quelques minutes ou suivez-nous pour connaître les dernières mises à jour.",
+    "tryAgain": "Réessayer"
+  },
+  "routeError": {
+    "defaultTitle": "Une erreur s'est produite",
+    "defaultDescription": "Une erreur est survenue",
+    "defaultDetails": "Une erreur inattendue s'est produite.",
+    "notFoundTitle": "Page introuvable",
+    "notFoundDetails": "La page demandée est introuvable.",
+    "persistsMessage": "Si le problème persiste, veuillez contacter l'assistance.",
+    "tryAgainMessage": "Une erreur inattendue s'est produite. Veuillez réessayer plus tard.",
+    "goToHomepage": "Retourner à l'accueil",
+    "allRightsReserved": "Tous droits réservés.",
+    "recommendations": {
+      "title": "Vous aimerez peut-être aussi"
+    },
+    "404": {
+      "title": "Page introuvable",
+      "message": "Nous n'avons pas trouvé la page que vous recherchez. Elle a peut-être été déplacée ou le lien est incorrect.",
+      "secondaryMessage": "Pas d'inquiétude : vous pouvez toujours parcourir notre collection ou retourner à l'accueil.",
+      "details": "La page demandée est introuvable."
+    },
+    "403": {
+      "title": "Accès restreint",
+      "message": "Vous n'avez pas l'autorisation d'afficher cette page. Si vous pensez qu'il s'agit d'une erreur, veuillez contacter notre équipe d'assistance.",
+      "secondaryMessage": "En attendant, n'hésitez pas à parcourir notre collection."
+    },
+    "500": {
+      "title": "Une erreur s'est produite",
+      "message": "Nous sommes désolés, un problème inattendu s'est produit de notre côté. Notre équipe a été informée et travaille à sa résolution.",
+      "secondaryMessage": "Veuillez réessayer dans quelques instants ou parcourir notre boutique pendant que nous réglons ce problème."
     }
   }
 }
